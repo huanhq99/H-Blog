@@ -8,6 +8,8 @@ export const metadata = {
   title: 'HuanHQ\'s Blog',
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
