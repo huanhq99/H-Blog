@@ -80,7 +80,6 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
             </div>
           )}
           <Markdown
-            children={post.content}
             components={{
               code({ node, className, children }) {
                 const match = /language-(\w+)/.exec(className || '')
@@ -102,7 +101,7 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
                 )
               }
             }}
-          />
+          >{post.content}</Markdown>
         </article>
       </main>
       <aside className="w-full lg:w-1/5 hidden lg:block mt-24">TOC (todo)</aside>

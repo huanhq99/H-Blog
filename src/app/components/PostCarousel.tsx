@@ -3,6 +3,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export default function PostCarousel({ posts }: { posts: any[] }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -43,7 +44,7 @@ export default function PostCarousel({ posts }: { posts: any[] }) {
             key={post.id + '-' + index}
             className="inline-block w-64 mx-3 bg-white dark:bg-gray-800 rounded-lg shadow-md cursor-pointer"
           >
-            <img
+            <Image
               src={imageUrl}
               alt={post.featuredImage?.alt || post.title}
               className="w-full aspect-video object-cover mb-2 rounded-md"
