@@ -24,13 +24,18 @@
     "@payloadcms/richtext-lexical": "3.47.0",
     "@payloadcms/translations": "^3.47.0",
     "@payloadcms/ui": "3.47.0",
+    "@shikijs/rehype": "^3.8.1",
     "cross-env": "^7.0.3",
     "dotenv": "17.2.0",
     "graphql": "^16.11.0",
     "next": "15.4.1",
     "payload": "3.47.0",
     "react": "19.1.0",
-    "sharp": "0.34.3"
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "remark-gfm": "^4.0.1",
+    "sharp": "0.34.3",
+    "shiki": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
@@ -39,6 +44,7 @@
     "@types/node": "^24.0.14",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@unocss/postcss": "^66.3.3",
     "@unocss/reset": "^66.3.3",
     "@vitejs/plugin-react": "4.6.0",

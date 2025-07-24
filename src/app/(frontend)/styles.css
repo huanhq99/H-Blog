@@ -120,32 +120,12 @@ body {
     margin: .5rem 0
 }
 
-.prose pre {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-radius: .375rem;
-    border-width: 1px;
-    --tw-border-opacity: 1;
-    border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
-    --tw-bg-opacity: 1;
-    background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
-    padding: 1rem;
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
-    max-height: 500px;
-    width: 100%;
-    height: auto;
-    overflow-y: auto;
-    line-height: 1.5;
-    font-family: Fira Code,monospace;
-    overflow-wrap: break-word
-}
-
 @media (min-width: 1024px) {
     .prose pre {
         max-width:50vw
     }
 }
+
 
 .prose pre code {
     background-color: transparent;

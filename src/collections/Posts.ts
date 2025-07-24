@@ -61,7 +61,7 @@ export const Posts: CollectionConfig = {
     },
     {
       name: 'content',
-      type: 'richText',
+      type: 'textarea',
       required: true,
     },
     {
