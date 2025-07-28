@@ -5,7 +5,7 @@ services:
       - '3000:3000'
     depends_on:
       - postgres
-    environments:
+    environment:
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_URI: localhost
@@ -20,7 +20,7 @@ services:
      - pgdata:/var/lib/postgresql/data
    ports:
      - "5432:5432"
-   environments:
+   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: postgres
     POSTGRES_DB: blog
