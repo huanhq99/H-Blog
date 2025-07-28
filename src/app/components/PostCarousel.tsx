@@ -1,60 +1,36 @@
-// components/PostCarousel.tsx
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 export default function PostCarousel({ posts }: { posts: any[] }) {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    let scroll = 0
-    const step = 1
-    const halfScroll = container.scrollWidth / 2
-
-    const interval = setInterval(() => {
-      container.scrollLeft += step
-      scroll += step
-
-      if (scroll >= halfScroll) {
-        container.scrollLeft = 0
-        scroll = 0
-      }
-    }, 16)
-
-    return () => clearInterval(interval)
-  }, [])
+  const duplicatedPosts = [...posts, ...posts] // 🔁 复制内容以实现无缝滚动
 
   return (
-    <div
-      ref={containerRef}
-      className="overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide px-4"
-    >
-      {posts.map((post, index) => {
-        const imageUrl = post.featuredImage?.url || '/placeholder.png'
-        const href = `/blog/${post.slug}` // 👈 文章详情页链接
+    <div className="overflow-hidden rounded-md">
+      <div className="post-carousel-track flex whitespace-nowrap w-max">
+        {duplicatedPosts.map((post, index) => {
+          const imageUrl = post.featuredImage || '/placeholder.png'
+          const href = `/blog/${post.slug}`
 
-        return (
-          <Link
-            href={href}
-            key={post.id + '-' + index}
-            className="inline-block w-64 mx-3 bg-white dark:bg-gray-800 rounded-lg shadow-md cursor-pointer"
-          >
-            <Image
-              src={imageUrl}
-              alt={post.featuredImage?.alt || post.title}
-              className="w-full aspect-video object-cover mb-2 rounded-md"
-            />
-            <h3 className="text-sm font-semibold text-center text-gray-800 dark:text-white px-2 pb-4">
-              {post.title}
-            </h3>
-          </Link>
-        )
-      })}
+          return (
+            <article key={`${post.id}-${index}`} className="flex-shrink-0 w-[445px] mr-4">
+              <Link href={href} className="block no-underline text-inherit h-full">
+                <Image
+                  width={445}
+                  height={250}
+                  src={imageUrl}
+                  alt={post.featuredImage?.alt || post.title}
+                  className="w-full aspect-video object-cover mb-2 rounded-md"
+                />
+                <div className="p-5">
+                  <h2 className="font-semibold line-clamp-2">{post.title}</h2>
+                </div>
+              </Link>
+            </article>
+          )
+        })}
+      </div>
     </div>
   )
 }

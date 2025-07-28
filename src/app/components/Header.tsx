@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-const navItem = { '主页': '/', '博客': '/blog' }
+const navItem = { 主页: '/', 博客: '/blog' }
 
 export default function Header() {
   const [hideHeader, setHideHeader] = useState(false)
@@ -48,18 +48,16 @@ export default function Header() {
       `}
     >
       <nav className="w-full">
-        <div className="flex items-center justify-between">
-          <div className="nav-links flex gap-2 text-lg">
-            {Object.entries(navItem).map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className="hover:bg-zinc-200 hover:text-black hover:rounded-md px-2 py-1"
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
+        <div className="nav-links flex gap-2 text-lg justify-center">
+          {Object.entries(navItem).map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className="hover:bg-zinc-200 hover:text-black hover:rounded-md px-2 py-1"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </nav>
     </header>

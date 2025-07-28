@@ -46,8 +46,7 @@ export const Posts: CollectionConfig = {
     },
     {
       name: 'featuredImage',
-      type: 'upload',
-      relationTo: 'media',
+      type: 'text',
       admin: {
         description: '文章封面图片。',
       },

@@ -8,13 +8,20 @@ export const metadata = {
   title: "博客 - HuanHQ's Blog",
 }
 
-export default async function BlogPage() {
+export default async function BlogTagsPage(context: { params: Promise<{ slug: string }> }) {
   const payload = await getPayload({ config: configPromise })
+
+  const { slug } = await context.params
 
   const postsData = await payload.find({
     collection: 'posts',
     depth: 1,
     overrideAccess: false,
+    where: {
+      'tags.name': {
+        equals: slug
+      }
+    }
   })
 
   const categoriesData = await payload.find({
@@ -45,9 +52,8 @@ export default async function BlogPage() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold pt-14 mb-4">博客</h1>
+      <h1 className="text-4xl font-bold pt-14 mb-4">标签：{slug}</h1>
       <div className="container mx-auto">
-        <p className="mb-10">沉淀下来的知识才有意义，笔记会在未来的某个时刻带来价值</p>
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-6/7 lg:pr-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-4">
@@ -108,9 +114,9 @@ export default async function BlogPage() {
                 </h2>
                 <div>
                   {tags.map((tag) => (
-                      <Link key={tag.id} href={`/blog/tags/${tag.name}`}>
-                        {tag.name}
-                      </Link>
+                    <Link key={tag.id} href={`/blog/tags/${tag.name}`}>
+                      {tag.name}
+                    </Link>
                   ))}
                 </div>
               </div>

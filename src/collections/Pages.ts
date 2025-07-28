@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const Posts: CollectionConfig = {
-  slug: 'posts',
+export const Pages: CollectionConfig = {
+  slug: 'pages',
   admin: {
     useAsTitle: 'title',
   },

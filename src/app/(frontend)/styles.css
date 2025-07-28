@@ -5,20 +5,20 @@ body {
   background: #f4f4f5;
   margin-left: 1em;
   margin-right: 1em;
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
   body {
     margin-left: 2em;
-    margin-right: 2em
+    margin-right: 2em;
   }
 }
 
 .wave {
   display: inline-block;
   animation: wave-animation 5.5s ease-in-out infinite;
-  transform-origin: 70% 70%
+  transform-origin: 70% 70%;
 }
 
 @keyframes wave-animation {
@@ -55,156 +55,169 @@ body {
   }
 }
 
+/* PostCarousel.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.post-carousel-track {
+  animation: scroll 30s linear infinite;
+}
+
 .post {
-  transition: box-shadow .3s ease;
-  border-radius: 6px
+  transition: box-shadow 0.3s ease;
+  border-radius: 6px;
 }
 
 .prose h1 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    font-weight: 700;
-    margin: 1rem 0
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
 }
 
 .prose h2 {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 600;
-    margin: 1em 0;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  margin: 1em 0;
 }
 
 .prose h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 500;
-    margin-top: 1.5em;
-    margin-bottom: 1em 0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin-top: 1.5em;
+  margin-bottom: 1em 0;
 }
 
 .prose h4 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 400;
-    margin: 1rem 0
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  margin: 1rem 0;
 }
 
 .prose h5 {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 300;
-    margin: 1rem 0
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+  margin: 1rem 0;
 }
 
 .prose h6 {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 100;
-    margin: 1rem 0
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 100;
+  margin: 1rem 0;
 }
 
 .prose ul {
-    list-style-type: disc;
-    padding-left: 1.5em;
-    margin: .5rem 0
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin: 0.5rem 0;
 }
 
 .prose ol {
-    list-style-type: decimal;
-    padding-left: 1.5em;
-    margin: .5rem 0
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin: 0.5rem 0;
 }
 
 .prose li {
-    margin-bottom: .5em;
-    margin: .5rem 0
+  margin-bottom: 0.5em;
+  margin: 0.5rem 0;
 }
 
 @media (min-width: 1024px) {
-    .prose pre {
-        max-width:50vw
-    }
+  .prose pre {
+    max-width: 50vw;
+  }
 }
 
-
 .prose pre code {
-    background-color: transparent;
-    color: inherit
+  background-color: transparent;
+  color: inherit;
 }
 
 .prose pre::-webkit-scrollbar {
-    width: 8px;
-    height: 8px
+  width: 8px;
+  height: 8px;
 }
 
 .prose pre::-webkit-scrollbar-thumb {
-    background-color: #ddd;
-    border-radius: 12px
+  background-color: #ddd;
+  border-radius: 12px;
 }
 
 .prose code:not(pre code) {
-    margin-right: .25rem;
-    margin-left: .25rem;
-    border-radius: .375rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
-    padding: .125rem .25rem;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
+  padding: 0.125rem 0.25rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .dark .prose code:not(pre code) {
-    margin-right: .25rem;
-    margin-left: .25rem;
-    border-radius: .375rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
-    padding: .25rem;
-    background-color: #27272a;
-    color: #a7a7a7
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity, 1));
+  padding: 0.25rem;
+  background-color: #27272a;
+  color: #a7a7a7;
 }
 
 .prose a {
-    text-decoration: underline;
-    text-decoration-color: #bababa;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 5px;
-    transition: color .3s ease;
-    position: relative
+  text-decoration: underline;
+  text-decoration-color: #bababa;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
 .prose a:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 100%;
-    height: 2px;
-    background-color: #262626;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .3s ease
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: #262626;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .prose a:hover:after {
-    transform: scaleX(1)
+  transform: scaleX(1);
 }
 
 .prose img {
-    margin: 2rem 0;
-    border-radius: 6px;
-    max-width: 100%;
-    height: auto
+  margin: 2rem 0;
+  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
 }
 
 .prose p {
-    margin-top: .3em
+  margin-top: 0.3em;
 }
 
 .prose p {
-    margin-top: .5em;
-    margin-bottom: .5em
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .prose blockquote {
@@ -222,12 +235,12 @@ body {
   margin: 2rem 0;
 }
 
-.prose strong, 
+.prose strong,
 .prose b {
   font-weight: bold;
 }
 
-.prose em, 
+.prose em,
 .prose i {
   font-style: italic;
 }
@@ -263,4 +276,31 @@ body {
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #d6e685;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #8cc665;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #44a340;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #1e6823;
+}
+
+.toc {
+  position:sticky;
+  top:2rem;
+  max-height:calc(100vh - 4rem);
+  overflow-y:auto;
+  padding-right:1rem;
+  max-width:100%;
+  overflow-x:hidden
+}
+
+[data-active='true'] {
+  color: #000;
 }
