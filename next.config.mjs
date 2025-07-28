@@ -12,6 +12,7 @@ const nextConfig = {
 
     return webpackConfig
   },
+  output: 'standalone',
   turbopack: {
     resolveAlias: {
       '.cjs': ['.cts', '.cjs'],
