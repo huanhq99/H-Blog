@@ -1,29 +1,29 @@
 services:
   payload:
-    image: node:20-alpine
+    image: ghcr.io/huanhq99/h-blog:latest
     ports:
       - '3000:3000'
-    volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
-    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
     depends_on:
       - postgres
-    env_file:
-      - .env
+    environments:
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_URI: localhost
+      DATABASE_PORT: 5432
+      DATABASE_NAME: blog
+      PAYLOAD_SECRET: YOUR_SECRET_HERE
 
-   postgres:
-     restart: always
-     image: postgres:16-alpine
-     volumes:
-       - pgdata:/var/lib/postgresql/data
-     ports:
-       - "5432:5432"
-     environments:
-      POSTGRES_USER:
-      POSTGRES_PASSWORD:
-      POSTGRES_DB: blog
+  postgres:
+   restart: always
+   image: postgres:16-alpine
+   volumes:
+     - pgdata:/var/lib/postgresql/data
+   ports:
+     - "5432:5432"
+   environments:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    POSTGRES_DB: blog
 
 volumes:
   pgdata:
