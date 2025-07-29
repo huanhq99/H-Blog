@@ -15,6 +15,7 @@ export default async function BlogPage() {
     collection: 'posts',
     depth: 1,
     overrideAccess: false,
+    pagination: false,
   })
 
   const categoriesData = await payload.find({
@@ -22,7 +23,7 @@ export default async function BlogPage() {
   })
 
   const tagsData = await payload.find({
-    collection: 'tags'
+    collection: 'tags',
   })
 
   const categories = categoriesData.docs || []
@@ -60,7 +61,10 @@ export default async function BlogPage() {
                     {post.featuredImage && (
                       <div className="relative w-full aspect-video mb-2 rounded-md overflow-hidden">
                         <Image
-                          src={post.featuredImage || 'https://img.huan.im/i/2025/05/11/6820505035ca2.png'}
+                          src={
+                            post.featuredImage ||
+                            'https://img.huan.im/i/2025/05/11/6820505035ca2.png'
+                          }
                           alt={post.title}
                           fill
                           className="object-cover rounded-md"
@@ -108,9 +112,9 @@ export default async function BlogPage() {
                 </h2>
                 <div className="flex flex-row flex-wrap space-x-3">
                   {tags.map((tag) => (
-                      <Link key={tag.id} href={`/blog/tags/${tag.name}`}>
-                        {tag.name}
-                      </Link>
+                    <Link key={tag.id} href={`/blog/tags/${tag.name}`}>
+                      {tag.name}
+                    </Link>
                   ))}
                 </div>
               </div>
