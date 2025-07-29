@@ -36,7 +36,7 @@ export default buildConfig({
     // `pool` is required.
     pool: {
       connectionString: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_URI}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`,
-    },
+    }
   }),
   sharp,
   plugins: [

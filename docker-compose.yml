@@ -1,29 +1,34 @@
 services:
   payload:
-    image: ghcr.io/huanhq99/h-blog:latest
+    container_name: h-blog
+    image: node:22-alpine
     ports:
       - '3000:3000'
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    command: sh -c "npm add -g pnpm && pnpm install && pnpm dev"
     depends_on:
       - postgres
     environment:
       DATABASE_USER: postgres
-      DATABASE_PASSWORD: postgres
-      DATABASE_URI: localhost
+      DATABASE_PASSWORD: 114514homo
+      DATABASE_URI: blog-postgres
       DATABASE_PORT: 5432
       DATABASE_NAME: blog
-      PAYLOAD_SECRET: YOUR_SECRET_HERE
+      PAYLOAD_SECRET: fdASKFHNJKAS%DSI&&R324
 
   postgres:
-   restart: always
-   image: postgres:16-alpine
-   volumes:
-     - pgdata:/var/lib/postgresql/data
-   ports:
-     - "5432:5432"
-   environment:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres
-    POSTGRES_DB: blog
+    container_name: blog-postgres
+    restart: always
+    image: postgres:16-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 114514homo
+      POSTGRES_DB: blog
 
 volumes:
   pgdata:
