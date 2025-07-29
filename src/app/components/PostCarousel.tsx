@@ -10,7 +10,6 @@ export default function PostCarousel({ posts }: { posts: any[] }) {
     <div className="overflow-hidden rounded-md">
       <div className="post-carousel-track flex whitespace-nowrap w-max">
         {duplicatedPosts.map((post, index) => {
-          const imageUrl = post.featuredImage || '/placeholder.png'
           const href = `/blog/${post.slug}`
 
           return (
@@ -19,8 +18,8 @@ export default function PostCarousel({ posts }: { posts: any[] }) {
                 <Image
                   width={445}
                   height={250}
-                  src={imageUrl}
-                  alt={post.featuredImage?.alt || post.title}
+                  src={post.featuredImage || 'https://img.huan.im/i/2025/05/11/6820505035ca2.png'}
+                  alt={post.title}
                   className="w-full aspect-video object-cover mb-2 rounded-md"
                 />
                 <div className="p-5">

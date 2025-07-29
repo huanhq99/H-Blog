@@ -66,7 +66,7 @@ export default async function BlogCategoriesPage(context: { params: Promise<{ sl
                         {post.featuredImage && (
                             <div className="relative w-full aspect-video mb-2 rounded-md overflow-hidden">
                               <Image
-                                  src={post.featuredImage}
+                                  src={post.featuredImage || 'https://img.huan.im/i/2025/05/11/6820505035ca2.png'}
                                   alt={post.title}
                                   fill
                                   className="object-cover rounded-md"
@@ -112,7 +112,7 @@ export default async function BlogCategoriesPage(context: { params: Promise<{ sl
                   <h2 className="text-lg font-semibold text-zinc-700 mb-2 dark:text-zinc-800">
                     标签
                   </h2>
-                  <div>
+                  <div className="flex flex-row flex-wrap space-x-3">
                     {tags.map((tag) => (
                         <Link key={tag.id} href={`/blog/tags/${tag.name}`}>
                           {tag.name}
