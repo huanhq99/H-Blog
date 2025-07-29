@@ -15,7 +15,7 @@ export default async function BlogPage() {
     collection: 'posts',
     depth: 1,
     overrideAccess: false,
-    pagination: false,
+    limit: 999,
   })
 
   const categoriesData = await payload.find({
