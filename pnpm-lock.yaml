@@ -29,6 +29,9 @@ importers:
       '@shikijs/rehype':
         specifier: ^3.8.1
         version: 3.8.1
+      '@sukka/markdown.css':
+        specifier: ^0.1.5
+        version: 0.1.5
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -1782,6 +1785,9 @@ packages:
   '@smithy/util-waiter@4.0.6':
     resolution: {integrity: sha512-slcr1wdRbX7NFphXZOxtxRNA7hXAAtJAXJDE/wdoMAos27SIquVCKiSqfB6/28YzQ8FCsB5NKkhdM5gMADbqxg==}
     engines: {node: '>=18.0.0'}
+
+  '@sukka/markdown.css@0.1.5':
+    resolution: {integrity: sha512-sRQ15167Q1/XztnHnwC7epK3XSenZqplmbykwpt3FqB++j48ov/2XmSBDIacug0ZIFwh50PhETy5R9zxCZza6Q==}
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
@@ -7228,6 +7234,8 @@ snapshots:
       '@smithy/abort-controller': 4.0.4
       '@smithy/types': 4.3.1
       tslib: 2.8.1
+
+  '@sukka/markdown.css@0.1.5': {}
 
   '@swc/helpers@0.5.15':
     dependencies:

@@ -73,7 +73,7 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
   return (
     <div className="flex flex-col lg:flex-row">
       <aside className="w-full lg:w-1/5 hidden lg:block mt-24 pr-6"></aside>
-      <main className="flex-1 sm:px-10 mt-24 prose max-w-full">
+      <main className="flex-1 sm:px-10 mt-24 markdown-body max-w-full">
         <article className="prose">
           <Link href="/blog" className="inline-block py-2 text-sm mt-4 text-zinc-400">
             <span className="inline-block ml-2">← 所有文章</span>
