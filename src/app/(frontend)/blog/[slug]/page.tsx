@@ -8,6 +8,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import type { Metadata } from 'next'
 import { TOC } from 'react-markdown-toc/server'
+import remarkGfm from 'remark-gfm'
 
 export async function generateMetadata(context: {
   params: Promise<{ slug: string }>
@@ -93,7 +94,9 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
               </div>
               <div className="text-center p-2 m-2 rounded-lg border bg-zinc-100 flex-shrink-0 max-w-[150px] dark:bg-zinc-800 dark:border-zinc-800">
                 <p className="text-xs text-zinc-500 mb-1">阅读时间</p>
-                <div className="inline-flex items-center text-zinc-500">{calculateReadingTime(post.content)} min read</div>
+                <div className="inline-flex items-center text-zinc-500">
+                  {calculateReadingTime(post.content)} min read
+                </div>
               </div>
             </div>
           </div>
@@ -108,6 +111,7 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
             </div>
           )}
           <Markdown
+            remarkPlugins={[remarkGfm]}
             components={{
               h2({ children }) {
                 const text = String(children)
@@ -154,12 +158,7 @@ export default async function BlogPostPage(context: { params: Promise<{ slug: st
       </main>
       <aside className="w-full lg:w-1/5 hidden lg:block mt-24 sticky">
         <nav className="toc">
-          <TOC
-            markdown={post.content}
-            throttleTime={100}
-            ul="pl-4"
-            li="my-1 text-gray-600"
-          />
+          <TOC markdown={post.content} throttleTime={100} ul="pl-4" li="my-1 text-gray-600" />
         </nav>
       </aside>
     </div>
